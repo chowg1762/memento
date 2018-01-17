@@ -6,13 +6,14 @@ import android.graphics.Bitmap;
  * Created by wongeun on 12/18/17.
  */
 
-public class VideoItem {
+//model
+public class WorkItem {
 
     private Bitmap thumbnailImage;
     private String title;
     private boolean playing = false;
 
-    public VideoItem(Bitmap thumbnailImage, String title){
+    public WorkItem(Bitmap thumbnailImage, String title){
         this.thumbnailImage = thumbnailImage;
         this.title = title;
     }

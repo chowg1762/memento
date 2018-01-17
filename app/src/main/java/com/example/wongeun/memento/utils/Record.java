@@ -12,8 +12,8 @@ import java.io.IOException;
 
 public class Record {
 
-    MediaRecorder mRecorder;
-    MediaPlayer mPlayer;
+    private MediaRecorder mRecorder;
+    private MediaPlayer mPlayer;
 
     public Record(MediaPlayer mPlayer, MediaRecorder mRecorder){
         this.mRecorder = mRecorder;

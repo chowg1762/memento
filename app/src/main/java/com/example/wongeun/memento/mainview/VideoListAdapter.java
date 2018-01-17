@@ -1,10 +1,6 @@
 package com.example.wongeun.memento.mainview;
 
-import android.graphics.Bitmap;
-import android.media.ThumbnailUtils;
-import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,12 +18,13 @@ import java.util.ArrayList;
 
 public class VideoListAdapter extends RecyclerView.Adapter {
 
-    ArrayList<VideoItem> videoItems;
-    OnThumbnailTouchListener thumbnailTouchListener;
-    OnConvertButtonClickListener convertButtonClickListener;
-    public VideoListAdapter(ArrayList<VideoItem> videoItems, OnThumbnailTouchListener thumbnailTouchListener, OnConvertButtonClickListener convertButtonClickListener){
+    private ArrayList<WorkItem> workItems;
+    private OnThumbnailTouchListener thumbnailTouchListener;
+    private OnConvertButtonClickListener convertButtonClickListener;
 
-        this.videoItems = videoItems;
+    public VideoListAdapter(ArrayList<WorkItem> workItems, OnThumbnailTouchListener thumbnailTouchListener, OnConvertButtonClickListener convertButtonClickListener){
+
+        this.workItems = workItems;
         this.thumbnailTouchListener = thumbnailTouchListener;
         this.convertButtonClickListener = convertButtonClickListener;
     }
@@ -47,7 +44,7 @@ public class VideoListAdapter extends RecyclerView.Adapter {
         ThumbnailViewHolder tvh = (ThumbnailViewHolder)holder;
 
 
-        tvh.thumbnailImage.setImageBitmap(videoItems.get(position).getThumbnailImage());
+        tvh.thumbnailImage.setImageBitmap(workItems.get(position).getThumbnailImage());
         tvh.thumbnailImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,12 +60,12 @@ public class VideoListAdapter extends RecyclerView.Adapter {
             }
         });
 
-        tvh.textView.setText(videoItems.get(position).getTitle());
+        tvh.textView.setText(workItems.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return videoItems.size();
+        return workItems.size();
     }
 
     class ThumbnailViewHolder extends RecyclerView.ViewHolder  {
